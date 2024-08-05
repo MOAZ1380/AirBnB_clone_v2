@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 """ Class review """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String, ForeignKey,Integer,Float
+from sqlalchemy.orm import relationship
 
 
-class Review(BaseModel):
+class Review(BaseModel, Base):
     """Class review """
-    # print("class review")
-    place_id = ""
-    user_id = ""
-    text = ""
+    __tablename__ = 'reviews'
+    text = Column(String(1024), nullable=False)
+    place_id = Column(String(60), ForeignKey('places.id'), nullable=False)
+    user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
+    # place = relationship("Place", back_populates="reviews")
+    # user = relationship("User", back_populates="reviews")
