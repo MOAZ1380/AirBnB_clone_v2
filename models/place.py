@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 from os import getenv
 from models.review import Review
 from models import storage
-import models
+# import models
 
 class Place(BaseModel, Base):
     """This class defines a place by various attributes"""
@@ -26,17 +26,15 @@ class Place(BaseModel, Base):
     
     reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
     
-    if models.storage_t != 'db':
+    if getenv('HBNB_TYPE_STORAGE') != "db":
         @property
         def reviews(self):
             """getter attribute returns the list of Review instances"""
-            from models.review import Review
-            review_list = []
-            all_reviews = models.storage.all(Review)
-            for review in all_reviews.values():
-                if review.place_id == self.id:
-                    review_list.append(review)
-            return review_list
+            list_reviews = []
+            for city in storage.all(Review).values():
+                if city.state_id == self.id:
+                    list_reviews.append(city)
+            return list_reviews
     # amenity_ids = []
 
     # # Relationships for DBStorage
