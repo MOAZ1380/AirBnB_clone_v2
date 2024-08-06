@@ -50,4 +50,4 @@ class Place(BaseModel, Base):
     #     all_reviews = storage.all(Review)
     #     return [review for review in all_reviews.values() if review.place_id == self.id]
     # user = relationship('User', back_populates='places')
-    # cities = relationship('City', back_populates='places') #####
+    # cities = relationship('City', back_populates='places') 
