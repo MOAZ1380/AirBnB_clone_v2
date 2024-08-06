@@ -91,7 +91,6 @@ EOF  help  quit
             key, value = key_value
             if value.startswith('"') and value.endswith('"'):
                 value = value[1:-1].replace('_', ' ').replace('\\"', '"')
-                # print(value)
             elif '.' in value:
                 try:
                     value = float(value)
@@ -108,15 +107,6 @@ EOF  help  quit
         new_instance.save()
         print(new_instance.id)
             
-        
-        
-        
-        
-        
-        
-        
-
-
     def do_show(self, arg):
         """print <class name> <id>"""
         split_arg = arg.split()
