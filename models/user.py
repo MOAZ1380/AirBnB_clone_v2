@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-""" class"""
-from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
-from sqlalchemy.orm import relationship
+""" Class user """
+
+from models.base_model import BaseModel
 
 
-
-class User(BaseModel, Base):
-    """ class """
-    __tablename__ = 'users'
-    email = Column(String(128), nullable=False)
-    password = Column(String(128), nullable=False)
-    first_name = Column(String(128))
-    last_name = Column(String(128))
-    # places = relationship("Place", back_populates="user", cascade="all, delete-orphan")
-    
+class User(BaseModel):
+    """ Class user """
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""

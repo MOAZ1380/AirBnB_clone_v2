@@ -143,19 +143,21 @@ EOF  help  quit
                 del(storage.all()[new_str])
                 storage.save()
 
-    def do_all(self, arg):
+    def do_all(self, line):
         """ Print all instances in string representation """
-
-        if arg:
-            if arg in classname:
-                for key, value in storage.all().items():
-                    print(str(value))
-
-            else:
-                print("** class doesn't exist **")
+        objects = []
+        if line == "":
+            print([str(value) for key, value in storage.all().items()])
         else:
-            for key, value in storage.all().items():
-                print(str(value))
+            st = line.split(" ")
+            if st[0] not in classname:
+                print("** class doesn't exist **")
+            else:
+                for key, value in storage.all().items():
+                    clas = key.split(".")
+                    if clas[0] == st[0]:
+                        objects.append(str(value))
+                print(objects)
 
     def do_update(self, arg):
         """Update a class instance of a given id by adding or updating

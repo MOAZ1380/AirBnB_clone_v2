@@ -22,14 +22,19 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
     # print("basemodel class Filestorage ")
+    
+    
+    def all(self):
+        """Returns the dictionary of objects"""
+        return type(self).__objects
 
-    def all(self, cls=None):
-        """Returns a dictionary of objects, optionally filtered by class."""
-        if cls is None:
-            return FileStorage.__objects
-        else:
-            cls_name = cls.__name__
-            return {k: v for k, v in FileStorage.__objects.items() if k.startswith(cls_name)}
+    # def all(self, cls=None):
+    #     """Returns a dictionary of objects, optionally filtered by class."""
+    #     if cls is None:
+    #         return FileStorage.__objects
+    #     else:
+    #         cls_name = cls.__name__
+    #         return {k: v for k, v in FileStorage.__objects.items() if k.startswith(cls_name)}
         
 
     def new(self, obj):
@@ -74,8 +79,8 @@ class FileStorage:
                 except json.JSONDecodeError:
                     pass
                 
-    def delete(self, obj=None):
-        if obj:
-            key = f"{__class__.__name__}.{obj.id}"
-            if key in self.__objects:
-                del self.__objects[key]
+    # def delete(self, obj=None):
+    #     if obj:
+    #         key = f"{__class__.__name__}.{obj.id}"
+    #         if key in self.__objects:
+    #             del self.__objects[key]
