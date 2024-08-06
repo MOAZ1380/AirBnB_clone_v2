@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship
 
 class City(BaseModel, Base):
     """City class"""
-    __tablename__ = 'cities'
+    __tablename__ = "cities"
     name = Column(String(128), nullable=False)
-    state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
-    places = relationship('Place', back_populates='cities', cascade='all, delete-orphan')
+    state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
+    places = relationship("Place", backref="cities", cascade="all, delete-orphan")

@@ -54,18 +54,6 @@ Documented commands (type help <topic>):
 EOF  help  quit
             """)
 
-    # def do_create(self, arg):
-    #     """Creates a new instances of a class"""
-    #     if arg:
-    #         if arg in classname:
-    #             new_instance = classname[arg]()
-    #             new_instance.save()
-    #             print(new_instance.id)
-    #         else:
-    #             print("** class doesn't exist **")
-    #     else:
-    #         print("** class name missing **")
-            
     def do_create(self, arg):
         """Creates a new instance of a class with given parameters"""
         if not arg:
