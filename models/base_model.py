@@ -39,12 +39,13 @@ class BaseModel:
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values of the instance."""
-        if '_sa_instance_state' in my_dict:
-            del my_dict['_sa_instance_state']
+        
         my_dict = self.__dict__.copy()
         my_dict['updated_at'] = self.updated_at.isoformat()
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['__class__'] = self.__class__.__name__
+        if '_sa_instance_state' in my_dict:
+            del my_dict['_sa_instance_state']
         return my_dict
     
     def delete(self):
