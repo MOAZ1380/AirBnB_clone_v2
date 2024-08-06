@@ -37,7 +37,7 @@ class DBStorage:
             for c in [User, State, City, Amenity, Place, Review]:
                 query = self.__session.query(c).all()
                 for obj in query:
-                    key = f"{self.__class__.__name__}.{obj.id}"
+                    key = f"{obj.__class__.__name__}.{obj.id}"
                     objects[key] = obj
         return objects
     
