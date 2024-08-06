@@ -15,5 +15,5 @@ class Review(BaseModel, Base):
     
     
     ###################3
-    user = relationship('User', back_populates='reviews')
-    place = relationship('Place', back_populates='reviews')
+    # user = relationship('User', back_populates='reviews')
+    # place = relationship('Place', back_populates='reviews')

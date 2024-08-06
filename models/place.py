@@ -7,6 +7,7 @@ from sqlalchemy.orm import relationship
 from os import getenv
 from models.review import Review
 from models import storage
+import models
 
 class Place(BaseModel, Base):
     """This class defines a place by various attributes"""
@@ -23,19 +24,32 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     
-    amenity_ids = []
-
-    # Relationships for DBStorage
-    user = relationship('User', back_populates='places')
-    city = relationship('City', back_populates='places')
     reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
+    
+    if models.storage_t != 'db':
+        @property
+        def reviews(self):
+            """getter attribute returns the list of Review instances"""
+            from models.review import Review
+            review_list = []
+            all_reviews = models.storage.all(Review)
+            for review in all_reviews.values():
+                if review.place_id == self.id:
+                    review_list.append(review)
+            return review_list
+    # amenity_ids = []
 
-    # Getter for FileStorage
-    @property
-    def reviews(self):
-        """Getter for reviews for FileStorage"""
-        from models import storage
-        all_reviews = storage.all(Review)
-        return [review for review in all_reviews.values() if review.place_id == self.id]
+    # # Relationships for DBStorage
+    # user = relationship('User', back_populates='places')
+    # city = relationship('City', back_populates='places')
+    # reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
+
+    # # Getter for FileStorage
+    # @property
+    # def reviews(self):
+    #     """Getter for reviews for FileStorage"""
+    #     from models import storage
+    #     all_reviews = storage.all(Review)
+    #     return [review for review in all_reviews.values() if review.place_id == self.id]
     # user = relationship('User', back_populates='places')
     # cities = relationship('City', back_populates='places') #####
