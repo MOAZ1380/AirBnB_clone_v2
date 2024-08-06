@@ -24,9 +24,10 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     
-    reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
     
-    if getenv('HBNB_TYPE_STORAGE') != "db":
+    if getenv('HBNB_TYPE_STORAGE') == "db":
+        reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
+    else:
         @property
         def reviews(self):
             """getter attribute returns the list of Review instances"""
@@ -35,6 +36,19 @@ class Place(BaseModel, Base):
                 if city.state_id == self.id:
                     list_reviews.append(city)
             return list_reviews
+    
+    
+    
+    
+    # if getenv('HBNB_TYPE_STORAGE') != "db":
+    #     @property
+    #     def reviews(self):
+    #         """getter attribute returns the list of Review instances"""
+    #         list_reviews = []
+    #         for city in storage.all(Review).values():
+    #             if city.state_id == self.id:
+    #                 list_reviews.append(city)
+    #         return list_reviews
     # amenity_ids = []
 
     # # Relationships for DBStorage
