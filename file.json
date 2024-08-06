@@ -1,36 +1,29 @@
 {
-    "State.0290c5e4-2c8f-4730-ba92-e77a6edaaa59": {
-        "id": "0290c5e4-2c8f-4730-ba92-e77a6edaaa59",
-        "created_at": "2024-08-04T02:22:35.096175",
-        "updated_at": "2024-08-04T02:22:35.096175",
-        "name": "Arizona",
-        "__class__": "State"
-    },
-    "State.75c28a7c-ed49-4a49-b61a-f662bee680ad": {
-        "id": "75c28a7c-ed49-4a49-b61a-f662bee680ad",
-        "created_at": "2024-08-04T03:06:09.189115",
-        "updated_at": "2024-08-04T03:06:09.189115",
+    "State.7f4473be-da62-4b41-a622-55a14bd9ad4c": {
+        "id": "7f4473be-da62-4b41-a622-55a14bd9ad4c",
+        "created_at": "2024-08-06T20:03:43.160751",
+        "updated_at": "2024-08-06T20:03:43.160751",
         "name": "California",
         "__class__": "State"
     },
-    "State.70745eef-11ae-40c1-af7e-428a19805a8d": {
-        "id": "70745eef-11ae-40c1-af7e-428a19805a8d",
-        "created_at": "2024-08-04T03:06:09.189115",
-        "updated_at": "2024-08-04T03:06:09.189115",
+    "State.babad6cb-89fc-493a-88b0-f923b9f67ad5": {
+        "id": "babad6cb-89fc-493a-88b0-f923b9f67ad5",
+        "created_at": "2024-08-06T20:03:43.160751",
+        "updated_at": "2024-08-06T20:03:43.160751",
         "name": "Nevada",
         "__class__": "State"
     },
-    "State.47d06753-a657-46f8-a65c-ac73168f4d74": {
-        "id": "47d06753-a657-46f8-a65c-ac73168f4d74",
-        "created_at": "2024-08-04T03:06:32.867275",
-        "updated_at": "2024-08-04T03:06:32.867275",
+    "State.e6e4e363-5b4c-4f0e-891e-b9e7490ca5de": {
+        "id": "e6e4e363-5b4c-4f0e-891e-b9e7490ca5de",
+        "created_at": "2024-08-06T20:05:12.702935",
+        "updated_at": "2024-08-06T20:05:12.702935",
         "name": "California",
         "__class__": "State"
     },
-    "State.a6a22c86-8513-4232-83bc-c593c8b1c588": {
-        "id": "a6a22c86-8513-4232-83bc-c593c8b1c588",
-        "created_at": "2024-08-04T03:06:32.872267",
-        "updated_at": "2024-08-04T03:06:32.872267",
+    "State.f8f5b9ef-c5b7-454c-a03c-ad370ae41d2c": {
+        "id": "f8f5b9ef-c5b7-454c-a03c-ad370ae41d2c",
+        "created_at": "2024-08-06T20:05:12.715573",
+        "updated_at": "2024-08-06T20:05:12.715573",
         "name": "Nevada",
         "__class__": "State"
     }
