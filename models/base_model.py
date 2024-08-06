@@ -17,10 +17,25 @@ class BaseModel:
     updated_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
     
     def __init__(self, *args, **kwargs):
-        """Initialize the attributes"""
-        for key, value in kwargs.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
+        """Initializes a new instance.
+        
+        Args:
+            - *args: list of arguments
+            - **kwargs: dict of key-value arguments
+        """
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != '__class__':
+                    setattr(self, key, value)
+            if 'id' not in kwargs:
+                self.id = str(uuid.uuid4())
+            if 'created_at' not in kwargs:
+                self.created_at = datetime.datetime.utcnow()
+            if 'updated_at' not in kwargs:
+                self.updated_at = datetime.datetime.utcnow()
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = self.updated_at = datetime.datetime.utcnow()
 
     def __str__(self):
         """Returns a readable string representation of BaseModel instances."""
