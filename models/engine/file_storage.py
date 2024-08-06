@@ -21,12 +21,6 @@ class FileStorage:
 
     __file_path = 'file.json'
     __objects = {}
-    # print("basemodel class Filestorage ")
-    
-    
-    # def all(self):
-    #     """Returns the dictionary of objects"""
-    #     return type(self).__objects
 
     def all(self, cls=None):
         """Returns a dictionary of objects, optionally filtered by class."""
@@ -39,25 +33,20 @@ class FileStorage:
 
     def new(self, obj):
         """Sets new obj in __objects dictionary."""
-        # print("class Filestorage new ")
         key = f"{obj.__class__.__name__}.{obj.id}"
         FileStorage.__objects[key] = obj
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
-        # print("class Filestorage save ")
         new_dict = {}
         for key, obj in type(self).__objects.items():
                 new_dict[key] = obj.to_dict()
-                # print("class Filestorage save for  ")
 
         with open(type(self).__file_path, "w", encoding='utf-8') as file:
                 json.dump(new_dict, file, indent=4)
-                # print("class Filestorage with open save ")
 
     def reload(self):
         """Deserializes the JSON file to __objects if it exists"""
-        # print("class Filestorage reload ")
         class_d = {
             "BaseModel": BaseModel,
             "User": User,
