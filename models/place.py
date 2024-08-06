@@ -23,12 +23,16 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     
-    if getenv('HBNB_TYPE_STORAGE') == "db":
-        reviews = relationship("Review", cascade="all, delete,delete-orphan", backref="user")
-    else:
+    amenity_ids = []
+
+    if getenv("HBNB_TYPE_STORAGE", None) != "db":
         @property
         def reviews(self):
-            all_reviews = storage.all(Review)
-            return [review for review in all_reviews.values() if review.place_id == self.id]
+            """Get a list of all linked Reviews."""
+            review_list = []
+            for review in list(storage.all(Review).values()):
+                if review.place_id == self.id:
+                    review_list.append(review)
+            return review_list
     # user = relationship('User', back_populates='places')
     # cities = relationship('City', back_populates='places') #####
