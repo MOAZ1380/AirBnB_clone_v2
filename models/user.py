@@ -9,7 +9,6 @@ from os import getenv
 class User(BaseModel, Base):
     """This class defines a user by various attributes"""
     __tablename__ = "users"
-    
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
     first_name = Column(String(128), nullable=True)
@@ -18,6 +17,3 @@ class User(BaseModel, Base):
     reviews = relationship("Review", backref="user", cascade="all, delete-orphan")
     
     
-    # Relationships
-    # places = relationship('Place', back_populates='user', cascade='all, delete-orphan')
-    # reviews = relationship('Review', back_populates='user', cascade='all, delete-orphan')
