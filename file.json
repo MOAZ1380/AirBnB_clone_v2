@@ -46,5 +46,31 @@
         "created_at": "2024-08-07T14:46:41.125575",
         "updated_at": "2024-08-07T16:46:41.125575",
         "__class__": "State"
+    },
+    "User.ac3b5742-1867-47da-b449-625de22019f2": {
+        "id": "ac3b5742-1867-47da-b449-625de22019f2",
+        "created_at": "2024-08-07T15:43:39.653065",
+        "updated_at": "2024-08-07T17:43:39.653852",
+        "__class__": "User"
+    },
+    "BaseModel.eb149d68-7460-40e7-b018-366d41a7e7ad": {
+        "id": "eb149d68-7460-40e7-b018-366d41a7e7ad",
+        "created_at": "2024-08-07T15:43:49.223770",
+        "updated_at": "2024-08-07T17:43:49.223770",
+        "__class__": "BaseModel"
+    },
+    "State.a8067ccb-2f39-41a0-a0ac-614c1612c5f5": {
+        "id": "a8067ccb-2f39-41a0-a0ac-614c1612c5f5",
+        "created_at": "2024-08-07T15:44:04.557857",
+        "updated_at": "2024-08-07T15:44:04.557857",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.1a2ae0e2-39e0-4605-b248-72a3e5ba5d90": {
+        "id": "1a2ae0e2-39e0-4605-b248-72a3e5ba5d90",
+        "created_at": "2024-08-07T15:44:04.557857",
+        "updated_at": "2024-08-07T15:44:04.557857",
+        "name": "Nevada",
+        "__class__": "State"
     }
 }
