@@ -41,11 +41,17 @@ class Place(BaseModel, Base):
             return review_list
         @property
         def amenities(self):
-            return self._amenities
+            """Get/set linked Amenities."""
+            from models import storage
+            amenity_list = []
+            for amenity in list(storage.all(Amenity).values()):
+                if amenity.id in self.amenity_ids:
+                    amenity_list.append(amenity)
+            return amenity_list
 
         @amenities.setter
         def amenities(self, value):
-            if isinstance(value, Amenity):
+            if type(value) == Amenity:
                 self.amenity_ids.append(value.id)
     
     
