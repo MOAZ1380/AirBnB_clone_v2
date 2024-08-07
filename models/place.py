@@ -7,8 +7,10 @@ from sqlalchemy.orm import relationship
 from os import getenv
 from models.review import Review
 from models.amenity import Amenity
+from sqlalchemy import *
 
-place_amenity = Table('place_amenity', Base.metadata,
+metadata = MetaData()
+place_amenity = Table('place_amenity', metadata,
     Column('place_id', String(60), ForeignKey('places.id'), primary_key=True, nullable=False),
     Column('amenity_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
 )
@@ -27,7 +29,7 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     reviews = relationship('Review',backref='place', cascade='all, delete-orphan')
-    amenities = relationship('Amenity', secondary=place_amenity, viewonly=False, backref='place_amenities')
+    amenities = relationship('Amenity', secondary=place_amenity, viewonly=False, back_populates='place_amenities')
     amenity_ids = []
     
     
@@ -41,44 +43,10 @@ class Place(BaseModel, Base):
             return review_list
         @property
         def amenities(self):
-            """Get/set linked Amenities."""
-            from models import storage
-            amenity_list = []
-            for amenity in list(storage.all(Amenity).values()):
-                if amenity.id in self.amenity_ids:
-                    amenity_list.append(amenity)
-            return amenity_list
+            return self._amenities
 
         @amenities.setter
         def amenities(self, value):
-            if type(value) == Amenity:
+            if isinstance(value, Amenity):
                 self.amenity_ids.append(value.id)
     
-    
-    
-    
-    # if getenv('HBNB_TYPE_STORAGE') != "db":
-    #     @property
-    #     def reviews(self):
-    #         """getter attribute returns the list of Review instances"""
-    #         list_reviews = []
-    #         for city in storage.all(Review).values():
-    #             if city.state_id == self.id:
-    #                 list_reviews.append(city)
-    #         return list_reviews
-    # amenity_ids = []
-
-    # # Relationships for DBStorage
-    # user = relationship('User', back_populates='places')
-    # city = relationship('City', back_populates='places')
-    # reviews = relationship('Review', back_populates='place', cascade='all, delete-orphan')
-
-    # # Getter for FileStorage
-    # @property
-    # def reviews(self):
-    #     """Getter for reviews for FileStorage"""
-    #     from models import storage
-    #     all_reviews = storage.all(Review)
-    #     return [review for review in all_reviews.values() if review.place_id == self.id]
-    # user = relationship('User', back_populates='places')
-    # cities = relationship('City', back_populates='places') 
