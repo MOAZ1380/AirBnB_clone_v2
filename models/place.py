@@ -29,7 +29,7 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     reviews = relationship('Review',backref='place', cascade='all, delete-orphan')
-    amenities = relationship('Amenity', secondary=place_amenity, viewonly=False, backref='place_amenities')
+    amenities = relationship("Amenity", secondary=place_amenity, back_populates="place_amenities", viewonly=False)
     amenity_ids = []
     
     
@@ -43,7 +43,13 @@ class Place(BaseModel, Base):
             return review_list
         @property
         def amenities(self):
-            return self._amenities
+            from models import storage
+            amenities = []
+            for amenity_id in self.amenity_ids:
+                amenity = storage.get('Amenity', amenity_id)
+                if amenity:
+                    amenities.append(amenity)
+            return amenities
 
         @amenities.setter
         def amenities(self, value):
