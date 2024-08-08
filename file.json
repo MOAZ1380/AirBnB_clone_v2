@@ -1,101 +1,31 @@
 {
-    "State.6ca7919d-1e18-4ff5-8dad-e90c34c4731f": {
-        "id": "6ca7919d-1e18-4ff5-8dad-e90c34c4731f",
-        "created_at": "2024-08-06T20:07:14.264464",
-        "updated_at": "2024-08-06T20:07:14.264464",
+    "State.cc5c9232-5b2e-4b59-9b9c-94c52aa6e104": {
+        "id": "cc5c9232-5b2e-4b59-9b9c-94c52aa6e104",
+        "created_at": "2024-08-08T23:12:39.538763",
+        "updated_at": "2024-08-09T01:12:39.538763",
         "name": "California",
         "__class__": "State"
     },
-    "State.725b29f7-7592-46ae-8db4-19f8252a4686": {
-        "id": "725b29f7-7592-46ae-8db4-19f8252a4686",
-        "created_at": "2024-08-06T20:07:14.264464",
-        "updated_at": "2024-08-06T20:07:14.264464",
-        "name": "Nevada",
+    "State.6dcf6a3f-36e1-4187-8fff-0d0464873a07": {
+        "id": "6dcf6a3f-36e1-4187-8fff-0d0464873a07",
+        "created_at": "2024-08-08T23:12:46.117701",
+        "updated_at": "2024-08-09T01:12:46.117701",
+        "name": "Arizona",
         "__class__": "State"
     },
-    "BaseModel.05e375a5-ef8b-4f22-af9c-6207695c08e4": {
-        "id": "05e375a5-ef8b-4f22-af9c-6207695c08e4",
-        "created_at": "2024-08-07T14:33:49.424644",
-        "updated_at": "2024-08-07T16:33:49.424644",
-        "__class__": "BaseModel"
-    },
-    "User.b303c7bb-d6d8-41bc-ae93-5909dff2ac99": {
-        "id": "b303c7bb-d6d8-41bc-ae93-5909dff2ac99",
-        "created_at": "2024-08-07T14:41:15.970865",
-        "updated_at": "2024-08-07T16:41:15.970865",
-        "email": "bob@hbtn.io",
-        "password": "bobpwd",
-        "first_name": "Bob",
-        "last_name": "Dylan",
-        "__class__": "User"
-    },
-    "User.a2d1259a-67e6-410f-b3a7-5b4515d32eda": {
-        "id": "a2d1259a-67e6-410f-b3a7-5b4515d32eda",
-        "created_at": "2024-08-07T14:46:26.067927",
-        "updated_at": "2024-08-07T16:46:26.067927",
-        "__class__": "User"
-    },
-    "Review.3c04445d-5b83-4a2f-a379-68536af38165": {
-        "id": "3c04445d-5b83-4a2f-a379-68536af38165",
-        "created_at": "2024-08-07T14:46:32.798982",
-        "updated_at": "2024-08-07T16:46:32.798982",
-        "__class__": "Review"
-    },
-    "State.7c66149d-4d32-4583-86e0-41614640bf40": {
-        "id": "7c66149d-4d32-4583-86e0-41614640bf40",
-        "created_at": "2024-08-07T14:46:41.125575",
-        "updated_at": "2024-08-07T16:46:41.125575",
-        "__class__": "State"
-    },
-    "User.ac3b5742-1867-47da-b449-625de22019f2": {
-        "id": "ac3b5742-1867-47da-b449-625de22019f2",
-        "created_at": "2024-08-07T15:43:39.653065",
-        "updated_at": "2024-08-07T17:43:39.653852",
-        "__class__": "User"
-    },
-    "BaseModel.eb149d68-7460-40e7-b018-366d41a7e7ad": {
-        "id": "eb149d68-7460-40e7-b018-366d41a7e7ad",
-        "created_at": "2024-08-07T15:43:49.223770",
-        "updated_at": "2024-08-07T17:43:49.223770",
-        "__class__": "BaseModel"
-    },
-    "State.a8067ccb-2f39-41a0-a0ac-614c1612c5f5": {
-        "id": "a8067ccb-2f39-41a0-a0ac-614c1612c5f5",
-        "created_at": "2024-08-07T15:44:04.557857",
-        "updated_at": "2024-08-07T15:44:04.557857",
-        "name": "California",
-        "__class__": "State"
-    },
-    "State.1a2ae0e2-39e0-4605-b248-72a3e5ba5d90": {
-        "id": "1a2ae0e2-39e0-4605-b248-72a3e5ba5d90",
-        "created_at": "2024-08-07T15:44:04.557857",
-        "updated_at": "2024-08-07T15:44:04.557857",
-        "name": "Nevada",
-        "__class__": "State"
-    },
-    "BaseModel.87595eea-e5b2-4d6d-b7a6-3e560d286ad0": {
-        "id": "87595eea-e5b2-4d6d-b7a6-3e560d286ad0",
-        "created_at": "2024-08-07T21:41:51.583292",
-        "updated_at": "2024-08-07T23:41:51.583292",
-        "__class__": "BaseModel"
-    },
-    "User.5434b365-3218-459a-a257-49e9a493d521": {
-        "id": "5434b365-3218-459a-a257-49e9a493d521",
-        "created_at": "2024-08-07T21:41:56.776354",
-        "updated_at": "2024-08-07T23:41:56.776354",
-        "__class__": "User"
-    },
-    "Amenity.5f44b309-2578-4962-8a53-50877a048402": {
-        "id": "5f44b309-2578-4962-8a53-50877a048402",
-        "created_at": "2024-08-08T00:15:00.477204",
-        "updated_at": "2024-08-08T02:15:00.477204",
-        "name": "Wifi",
-        "__class__": "Amenity"
-    },
-    "Amenity.679705f7-43de-4484-a589-5791f928c8e4": {
-        "id": "679705f7-43de-4484-a589-5791f928c8e4",
-        "created_at": "2024-08-08T00:15:30.838375",
-        "updated_at": "2024-08-08T02:15:30.838375",
-        "__class__": "Amenity"
+    "Place.e5b64c55-b292-48a2-917f-ef8a2a2f0b0e": {
+        "id": "e5b64c55-b292-48a2-917f-ef8a2a2f0b0e",
+        "created_at": "2024-08-08T23:12:59.285372",
+        "updated_at": "2024-08-09T01:12:59.285372",
+        "city_id": "0001",
+        "user_id": "0001",
+        "name": "My little house",
+        "number_rooms": 4,
+        "number_bathrooms": 2,
+        "max_guest": 10,
+        "price_by_night": 300,
+        "latitude": 37.773972,
+        "longitude": -122.431297,
+        "__class__": "Place"
     }
 }
