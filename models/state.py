@@ -1,11 +1,22 @@
-#!/usr/bin/python3
-""" class"""
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
+import models
+from models.city import City
 
+class State(BaseModel, Base):
+    __tablename__ = 'states'
+    name = Column(String(128), nullable=False)
+    cities = relationship('City', backref='state', cascade='all, delete, delete-orphan')
 
-class State(BaseModel):
-    """ class"""
-    name = ""
+    @property
+    def cities(self):
+        """Getter attribute cities that returns the list of City instances with state_id equals to the current State.id"""
+        if models.storage_type == 'db':
+            return self.cities
+        else:
+            return [city for city in models.storage.all(City).values() if city.state_id == self.id]
+
 
 
 # #!/usr/bin/python3
