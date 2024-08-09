@@ -32,6 +32,8 @@ class DBStorage:
         classes = {"State": State, "City": City, "User": User, "Place": Place,"Amenity": Amenity,"Review": Review}  # Add 
 
         if cls:
+            if isinstance(cls, str):  # Convert string to class
+                cls = classes.get(cls)
             if cls in classes.values():
                 objs = self.__session.query(cls).all()
                 for obj in objs:
