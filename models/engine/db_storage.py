@@ -27,19 +27,26 @@ class DBStorage:
             self.drop_all()
     
     def all(self, cls=None):
-        objects = {}
+        """Query on the current database session."""
+        result = {}
+        classes = {"State": State, "City": City, "User": User, "Place": Place,"Amenity": Amenity,"Review": Review}  # Add 
+
         if cls:
-            Query = self.__session.query(cls).all()
-            for obj in Query:
-                key = f"{type(obj).__name__}.{obj.id}"
-                objects[key] = obj
+            if cls in classes.values():
+                objs = self.__session.query(cls).all()
+                for obj in objs:
+                    key = f"{type(obj).__name__}.{obj.id}"
+                    result[key] = obj
+            else:
+                raise ValueError(f"Invalid class: {cls}")
         else:
-            for c in [User, State, City, Amenity, Place, Review]:
-                query = self.__session.query(c).all()
-                for obj in query:
-                    key = f"{type(obj).__name__}.{obj.id}.{obj.id}"
-                    objects[key] = obj
-        return objects
+            for class_name in classes.values():
+                objs = self.__session.query(class_name).all()
+                for obj in objs:
+                    key = f"{type(obj).__name__}.{obj.id}"
+                    result[key] = obj
+
+        return result
     
     
     def new(self, obj):
